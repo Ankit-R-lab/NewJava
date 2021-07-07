@@ -18,6 +18,8 @@ import com.app.springboot.repository.UserRepository;
 
 import java.util.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -37,7 +39,7 @@ public class UserController {
 	}
 
 	@PostMapping
-	public User createUser(@RequestBody User user) {
+	public User createUser(@Valid @RequestBody User user) {
 		return this.userRepository.save(user);
 	}
 
